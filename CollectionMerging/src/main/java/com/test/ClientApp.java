@@ -1,12 +1,12 @@
-package com.beans;
+package com.test;
 import java.util.Calendar;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ClientApp {
 	public static void main(String[] args){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		//get bean
+		@SuppressWarnings("rawtypes")
 		Class c1 = context.getBean("c1",Class.class);
 		System.out.println("c1 data"+c1+" c1 class name"+c1.getClass());
 		//get bean
