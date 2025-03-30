@@ -4,21 +4,26 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
                            
-<bean id="base1styear" class="com.spring_core.CollectionMerging.beans.EnggCourse">
-	<property name="subjects">
-		<list>
-			<value>C</value>
-			<value>Math</value>
-			<value></value>
-		</list>
-	</property>
+<bean id="c1" class="java.lang.Class" factory-method="forName">
+	<constructor-arg value="java.util.Date"/>
 </bean>
 
-<bean id="ece1styear" class="com.spring_core.CollectionMerging.beans.EnggCourse" parent="base1styear">
-	<property name="subjects">
-		<list merge="true">
-			<value>DELD</value>
-		</list>
-	</property>
+<bean id="c2" class="java.lang.Calendar" factory-method="getInstance"/>
+
+<bean id="s1" class="java.lang.String">
+	<constructor-arg value="Hello"/>
+</bean>
+
+<bean id="s2" factory-bean="s1" factory-method="concat">
+	<constructor-arg value="how are you ?"/>
+</bean>
+
+<bean id="sb" class="java.lang.StringBuffer">
+	<constructor-arg value="Hello how are you ?"/>
+</bean>
+
+<bean id="s3" factory-bean="sb" factory-method="subString">
+	<constructor-arg value="0"/>
+	<constructor-arg value="5"/>
 </bean>
 </beans>
